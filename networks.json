@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "Vivid": {
+      "address": "0x497b54355043e7a0d06bf5e3c20cecf859fcc0a8",
+      "startBlock": 0
+    }
+  }
+}
