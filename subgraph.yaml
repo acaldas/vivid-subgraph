@@ -1,4 +1,7 @@
 specVersion: 0.0.5
+features:
+  - fullTextSearch
+  - ipfsOnEthereumContracts
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,12 +11,14 @@ dataSources:
     source:
       address: "0x497b54355043e7a0d06bf5e3c20cecf859fcc0a8"
       abi: Vivid
-      startBlock: 0
+      startBlock: 14893984
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
+        - Token
+        - User
         - Approval
         - ApprovalForAll
         - OwnershipTransferred

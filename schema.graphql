@@ -1,3 +1,60 @@
+type Token @entity {
+  id: ID!
+  tokenID: BigInt!
+  tokenURI: String!
+  ipfsURI: String!
+  image: String!
+  name: String!
+  description: String!
+  character: String!
+  face: String!
+  hairType: String!
+  mask: String!
+  ear: String!
+  eyeCover: String!
+  apparel: String!
+  headwear: String!
+  tattoo: String!
+  weapon: String!
+  effect: String!
+  background: String!
+  updatedAtTimestamp: BigInt!
+  owner: User!
+}
+
+type User @entity {
+  id: ID!
+  tokens: [Token!]! @derivedFrom(field: "owner")
+}
+
+type _Schema_
+  @fulltext(
+    name: "vividSearch"
+    language: en
+    algorithm: rank
+    include: [
+      {
+        entity: "Token"
+        fields: [
+          { name: "name" }
+          { name: "description" }
+          { name: "character" }
+          { name: "face" }
+          { name: "hairType" }
+          { name: "mask" }
+          { name: "ear" }
+          { name: "eyeCover" }
+          { name: "apparel" }
+          { name: "headwear" }
+          { name: "tattoo" }
+          { name: "weapon" }
+          { name: "effect" }
+          { name: "background" }
+        ]
+      }
+    ]
+  )
+
 type Approval @entity(immutable: true) {
   id: Bytes!
   owner: Bytes! # address
