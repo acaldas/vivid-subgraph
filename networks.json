@@ -3,6 +3,9 @@
     "Vivid": {
       "address": "0x497b54355043e7a0d06bf5e3c20cecf859fcc0a8",
       "startBlock": 0
+    },
+    "Lizard": {
+      "address": "0x6231Aee790AA7B758aE68fc5612E1d00E97f3E24"
     }
   }
 }

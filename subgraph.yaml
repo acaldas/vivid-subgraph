@@ -36,3 +36,35 @@ dataSources:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: ./src/vivid.ts
+  - kind: ethereum
+    name: Lizard
+    network: mainnet
+    source:
+      address: "0x6231Aee790AA7B758aE68fc5612E1d00E97f3E24"
+      abi: Lizard
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Token
+        - User
+        - ConsecutiveTransfer
+        - Invited
+        - Referral
+        - Withdrawal
+      abis:
+        - name: Lizard
+          file: ./abis/Lizard.json
+      eventHandlers:
+        - event: ConsecutiveTransfer(indexed uint256,uint256,indexed address,indexed address)
+          handler: handleConsecutiveTransfer
+        - event: Invited(indexed bytes32,indexed bytes32)
+          handler: handleInvited
+        - event: Referral(indexed address,uint128,uint256)
+          handler: handleReferral
+        - event: Withdrawal(indexed address,uint128)
+          handler: handleWithdrawal
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/lizard.ts
